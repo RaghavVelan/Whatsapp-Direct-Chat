@@ -15,9 +15,25 @@ function App() {
   
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      sendfunc();
+      if(number !== '')
+      {
+        sendfunc();
+      }
+      else{
+        alert("Please Enter a whatsapp number");
+      }
     }
   };
+
+  function btnclickvalidate(){
+    if(number !== '')
+    {
+      sendfunc();
+    }
+    else{
+      alert("Please Enter a whatsapp number");
+    }
+  }
 
   function sendfunc(){
   window.open(url);
@@ -37,8 +53,8 @@ function App() {
       <section>
         <div className='main'>
         <label htmlFor="ph_no">Enter the Whatsapp Number without country code</label> <br />
-        <input type="tel" name="phone_number" id="ph_no" placeholder='whatsapp number' onChange={handleChange} value={number} onKeyDown={handleKeyDown} /> <br />
-        <button onClick={sendfunc} className='send-btn btn'>Send Message</button>
+        <input type="tel" name="phone_number" id="ph_no" placeholder='whatsapp number' onChange={handleChange} value={number} onKeyDown={handleKeyDown} required /> <br />
+        <button onClick={btnclickvalidate} className='send-btn btn'>Send Message</button>
         </div>
         <div className='waweb'>
           <button onClick={waweb} className='waweb-btn btn'>Try Whatsapp Web</button>
